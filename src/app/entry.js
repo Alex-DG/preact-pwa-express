@@ -8,7 +8,7 @@ import ensurePolyfills from './utils/ensurePolyfills'
 
 const app = document.getElementById('app')
 
-console.log('--> entry');
+alert('--> entry');
 
 ensurePolyfills(() => {
 
@@ -34,7 +34,7 @@ ensurePolyfills(() => {
       }
     });
   });
-  // 
+  //
   // window.addEventListener('popstate', (e) => {
   //   store.dispatch(updateLocation(window.location.pathname + window.location.search))
   // })
