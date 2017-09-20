@@ -8,7 +8,11 @@ import ensurePolyfills from './utils/ensurePolyfills'
 
 const app = document.getElementById('app')
 
+console.log('--> entry');
+
 ensurePolyfills(() => {
+
+  console.log('--> ensurePolyfills');
 
   const store = createStore(window.__STATE__, window.fetch)
 
