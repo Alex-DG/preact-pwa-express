@@ -6,6 +6,8 @@ Based on: [zekielchentnik/preact-pwa](https://github.com/ezekielchentnik/preact-
 
 Features universal rendering, redux, state-driven routing, preact, & service workers.  Crunched & optimized with rollup, buble, optimize-js, & purify-css.
 
+Live version (zeit): [Demo](https://preact-pwa-ayeoupsmkv.now.sh/)
+
 ## Getting Started
 
 ### Prerequisites
