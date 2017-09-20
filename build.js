@@ -55,7 +55,7 @@ const sw = () => swPrecache('build/public/sw.js', {
   ],
   navigateFallback: '/',
   dynamicUrlToDependencies: {
-    '/': ['./src/server/routes/root.js', './build/public/bundle.css', './build/public/bundle.js', './build/public/manifest.json', './package.json'] // bust cache when these change
+    '/': ['./src/app/components/Home.js', './src/server/routes/root.js', './build/public/bundle.css', './build/public/bundle.js', './build/public/manifest.json', './package.json'] // bust cache when these change
   },
   skipWaiting: true,
   stripPrefix: './build/public',
