@@ -34,20 +34,20 @@ ensurePolyfills(() => {
       }
     });
   });
-
-  window.addEventListener('popstate', (e) => {
-    store.dispatch(updateLocation(window.location.pathname + window.location.search))
-  })
-
-  store.subscribe(() => {
-    const url = getUrl(store.getState())
-    if (window.location.pathname + window.location.search !== url) {
-      window.history.pushState({}, '', url)
-    }
-  })
-
-  store.dispatch(updateLocation(window.location.pathname + window.location.search))
-  store.dispatch(fetchPostsIfNeeded())
+  // 
+  // window.addEventListener('popstate', (e) => {
+  //   store.dispatch(updateLocation(window.location.pathname + window.location.search))
+  // })
+  //
+  // store.subscribe(() => {
+  //   const url = getUrl(store.getState())
+  //   if (window.location.pathname + window.location.search !== url) {
+  //     window.history.pushState({}, '', url)
+  //   }
+  // })
+  //
+  // store.dispatch(updateLocation(window.location.pathname + window.location.search))
+  // store.dispatch(fetchPostsIfNeeded())
 
   render(<App store={store} />, app, app.lastChild)
 })
