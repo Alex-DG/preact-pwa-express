@@ -1,5 +1,11 @@
 # [preact-pwa](https://preact-pwa-yfxiijbzit.now.sh/)
 
+A `Super fast progressive web app` with a small footprint & minimal dependencies. Based on: [zekielchentnik/preact-pwa](https://github.com/ezekielchentnik/preact-pwa)
+
+Features universal rendering, redux, state-driven routing, preact, & service workers.  Crunched & optimized with rollup, buble, optimize-js, & purify-css.
+
+Live version (zeit): [https://preact-pwa-yfxiijbzit.now.sh/](https://preact-pwa-yfxiijbzit.now.sh/)
+
 ## Getting Started
 
 ### Prerequisites
