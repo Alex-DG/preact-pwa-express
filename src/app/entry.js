@@ -16,38 +16,38 @@ ensurePolyfills(() => {
 
   const store = createStore(window.__STATE__, window.fetch)
 
-  window.addEventListener('beforeinstallprompt', function(e) {
-    console.log('-> beforeinstallprompt Event fired');
-    // beforeinstallprompt Event fired
-
-    // e.userChoice will return a Promise.
-    // For more details read: https://developers.google.com/web/fundamentals/getting-started/primers/promises
-    e.userChoice.then(function(choiceResult) {
-
-      console.log(choiceResult.outcome);
-
-      if(choiceResult.outcome == 'dismissed') {
-        console.log('[x] User cancelled home screen install');
-      }
-      else {
-        console.log('[v] User added to home screen');
-      }
-    });
-  });
+  // window.addEventListener('beforeinstallprompt', function(e) {
+  //   console.log('-> beforeinstallprompt Event fired');
+  //   // beforeinstallprompt Event fired
   //
-  // window.addEventListener('popstate', (e) => {
-  //   store.dispatch(updateLocation(window.location.pathname + window.location.search))
-  // })
+  //   // e.userChoice will return a Promise.
+  //   // For more details read: https://developers.google.com/web/fundamentals/getting-started/primers/promises
+  //   e.userChoice.then(function(choiceResult) {
   //
-  // store.subscribe(() => {
-  //   const url = getUrl(store.getState())
-  //   if (window.location.pathname + window.location.search !== url) {
-  //     window.history.pushState({}, '', url)
-  //   }
-  // })
+  //     console.log(choiceResult.outcome);
   //
-  // store.dispatch(updateLocation(window.location.pathname + window.location.search))
-  // store.dispatch(fetchPostsIfNeeded())
+  //     if(choiceResult.outcome == 'dismissed') {
+  //       console.log('[x] User cancelled home screen install');
+  //     }
+  //     else {
+  //       console.log('[v] User added to home screen');
+  //     }
+  //   });
+  // });
+
+  window.addEventListener('popstate', (e) => {
+    store.dispatch(updateLocation(window.location.pathname + window.location.search))
+  })
+
+  store.subscribe(() => {
+    const url = getUrl(store.getState())
+    if (window.location.pathname + window.location.search !== url) {
+      window.history.pushState({}, '', url)
+    }
+  })
+
+  store.dispatch(updateLocation(window.location.pathname + window.location.search))
+  store.dispatch(fetchPostsIfNeeded())
 
   render(<App store={store} />, app, app.lastChild)
 })

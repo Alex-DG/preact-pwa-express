@@ -24,7 +24,7 @@ const AppShell = ({ html, state }) => `<!DOCTYPE html>
     <meta name="theme-color" content="#673ab8">
     <link rel="manifest" href="${manifestUrl}">
     <link rel="dns-prefetch" href="https://jsonplaceholder.typicode.com">
-    <link rel="shortcut icon"type="image/x-icon" href="data:image/x-icon;,">
+    <link rel="shortcut icon" type="image/x-icon" href="data:image/x-icon;,">
     <style>${inlineCss}</style>
   </head>
   <body>
@@ -37,6 +37,7 @@ const AppShell = ({ html, state }) => `<!DOCTYPE html>
 const createPreloadedState = () => ({}) // stub
 
 const createAppShell = (store) => {
+  console.log('createAppShell'); 
   const state = store.getState()
   const html = render(<App store={store} />)
   return AppShell({ html, state })

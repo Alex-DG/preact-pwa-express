@@ -6,7 +6,8 @@ import Posts from './Posts'
 import Post from './Post'
 import Home from './Home'
 import About from './About'
-import FourOhFour from './FourOhFour'
+import Alex from './Alex'
+import FourOhFour from './FourOhFour' //
 const { Provider, connect } = PreactRedux
 
 const Content = connect(
@@ -22,6 +23,9 @@ const Content = connect(
     return <About />
   } else if (pathname === '/') {
     return <Home />
+  } else if (pathname === '/alex') {
+    debugger;
+    return <Alex />
   } else {
     return <FourOhFour />
   }
