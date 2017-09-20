@@ -8,7 +8,7 @@ import ensurePolyfills from './utils/ensurePolyfills'
 
 const app = document.getElementById('app')
 
-alert('--> entry');
+console.log('--> entry');
 
 ensurePolyfills(() => {
 
