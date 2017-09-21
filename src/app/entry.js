@@ -20,9 +20,10 @@ const app = document.getElementById('app')
 console.log('sadasdasdasdadasda');
 
 window.addEventListener("beforeinstallprompt", e => {
+  alert('->' + navigator.getInstalledRelatedApps);
   if (navigator.getInstalledRelatedApps) {
     e.preventDefault();  // Stop automated install prompt.
-    alert('->' + navigator.getInstalledRelatedApps);
+
     navigator.getInstalledRelatedApps().then(relatedApps => {
       if (relatedApps.length == 0) {
         e.prompt();
