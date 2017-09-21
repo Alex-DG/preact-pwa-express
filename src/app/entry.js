@@ -17,17 +17,29 @@ const app = document.getElementById('app')
 //   // }
 // });
 
-console.log('sadasdasdasdadasda'); 
+console.log('sadasdasdasdadasda');
 
-window.addEventListener("beforeinstallprompt", function(e) {
-  // log the platforms provided as options in an install prompt
-  console.log(e.platforms); // e.g., ["web", "android", "windows"]
-  alert('->' + e.platforms);
-  e.userChoice.then(function(outcome) {
-    alert('->' + e.platforms);
-    console.log(outcome); // either "installed", "dismissed", etc.
-  }, handleError);
+window.addEventListener("beforeinstallprompt", e => {
+  if (navigator.getInstalledRelatedApps) {
+    e.preventDefault();  // Stop automated install prompt.
+    alert('->' + navigator.getInstalledRelatedApps);
+    navigator.getInstalledRelatedApps().then(relatedApps => {
+      if (relatedApps.length == 0) {
+        e.prompt();
+      }
+    });
+  }
 });
+
+// window.addEventListener("beforeinstallprompt", function(e) {
+//   // log the platforms provided as options in an install prompt
+//   console.log(e.platforms); // e.g., ["web", "android", "windows"]
+//   alert('->' + e.platforms);
+//   e.userChoice.then(function(outcome) {
+//     alert('->' + e.platforms);
+//     console.log(outcome); // either "installed", "dismissed", etc.
+//   }, handleError);
+// });
 
 
 ensurePolyfills(() => {
