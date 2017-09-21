@@ -8,13 +8,13 @@ import ensurePolyfills from './utils/ensurePolyfills'
 
 const app = document.getElementById('app')
 
-navigator.getInstalledRelatedApps().then(relatedApps => {
-  console.log('getInstalledRelatedApps');
-  for (let app of relatedApps) {
-    console.log(app);
-    console.log(app.name);
-  }
-});
+// navigator.getInstalledRelatedApps().then(relatedApps => {
+//   console.log('getInstalledRelatedApps');
+//   for (let app of relatedApps) {
+//     console.log(app);
+//     console.log(app.name);
+//   }
+// });
 
 ensurePolyfills(() => {
 
