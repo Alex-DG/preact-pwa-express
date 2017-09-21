@@ -8,14 +8,27 @@ import ensurePolyfills from './utils/ensurePolyfills'
 
 const app = document.getElementById('app')
 
-navigator.getInstalledRelatedApps().then(relatedApps => {
-  console.log('======>>>>>>>> relatedApps');
-  console.log(relatedApps);
-  // for (let app of relatedApps) {
-  //   console.log(app);
-  //   console.log(app.name);
-  // }
+// navigator.getInstalledRelatedApps().then(relatedApps => {
+//   console.log('======>>>>>>>> relatedApps');
+//   console.log(relatedApps);
+//   // for (let app of relatedApps) {
+//   //   console.log(app);
+//   //   console.log(app.name);
+//   // }
+// });
+
+console.log('sadasdasdasdadasda'); 
+
+window.addEventListener("beforeinstallprompt", function(e) {
+  // log the platforms provided as options in an install prompt
+  console.log(e.platforms); // e.g., ["web", "android", "windows"]
+  alert('->' + e.platforms);
+  e.userChoice.then(function(outcome) {
+    alert('->' + e.platforms);
+    console.log(outcome); // either "installed", "dismissed", etc.
+  }, handleError);
 });
+
 
 ensurePolyfills(() => {
 

@@ -37,7 +37,6 @@ const AppShell = ({ html, state }) => `<!DOCTYPE html>
 const createPreloadedState = () => ({}) // stub
 
 const createAppShell = (store) => {
-  console.log('createAppShell'); 
   const state = store.getState()
   const html = render(<App store={store} />)
   return AppShell({ html, state })
